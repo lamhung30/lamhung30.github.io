@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Web Đầu Tiên Của Tôi</title>
+    
+    <!-- 1. PHẦN CSS: Định kiểu giao diện -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #3498db;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #2c3e50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: #34495e;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 2. PHẦN HTML: Tạo cấu trúc nội dung -->
+    <h1>Chào mừng bạn đến với trang web của tôi!</h1>
+    <div class="box" id="colorBox"></div>
+    <button id="changeColorBtn">Đổi màu sắc</button>
+
+    <!-- 3. PHẦN JAVASCRIPT: Tạo tính năng tương tác -->
+    <script>
+        // Lấy các phần tử HTML bằng ID
+        const box = document.getElementById('colorBox');
+        const button = document.getElementById('changeColorBtn');
+
+        // Hàm tạo màu sắc ngẫu nhiên (RGB)
+        function getRandomColor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+
+        // Lắng nghe sự kiện click chuột vào nút bấm
+        button.addEventListener('click', function() {
+            // Thay đổi màu nền của chiếc hộp
+            box.style.backgroundColor = getRandomColor();
+        });
+    </script>
+
+</body>
+</html>
